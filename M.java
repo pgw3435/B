@@ -1,4 +1,5 @@
-package M;
+package Project;
+
 import java.util.*;
 
 
@@ -12,6 +13,11 @@ class Person
 		age = a;
 		name = n;
 		atr = at;
+	}
+	
+	public String print()
+	{
+		return ('\t' + age + '\t' + name + '\t' + atr);
 	}
 }
 
@@ -52,6 +58,24 @@ class GUI
 				h.clear();
 				return;
 			}
+			System.out.println('\n' + "예약번호" + '\t' + "나이" + '\t' + "이름" + '\t' + "놀이기구" );
+			/*
+			Set<Integer> keys = h.keySet();
+			Iterator<Integer> it = keys.iterator();
+			while(it.hasNext())
+			{
+				Integer key = it.next();
+				Person p = h.get(key);
+				System.out.println(key.toString() + p.print());
+			}
+			System.out.println();
+			*/
+			int n = 1;
+			while(n < Management.i)
+			{
+				if(h.containsKey(n))
+					System.out.println(n + h.get(n++).print());
+			}
 		}
 	}
 }
@@ -65,18 +89,14 @@ class Management
 	public static void reservation(HashMap<Integer, Person> h)
 	{
 		
-		System.out.println("나이 이름 놀이기구 입력 >> ");
-		
-		int age = 0;
-		String name = null, atr = null;
-		
-		age = scn.nextInt();		
-		name = scn.next();
-		atr = scn.next();
+		System.out.println("나이 입력 >> ");		
+		int age = scn.nextInt();		
+		System.out.println("이름 입력 >> ");
+		String name = scn.next();
+		System.out.println("놀이기구 입력 >> ");
+		String atr = scn.next();
 		
 		h.put(i++, new Person(age, name, atr));
-		
-		scn.close();
 	}
 	
 	public static void cancel(HashMap<Integer, Person> h)
@@ -92,7 +112,25 @@ class Management
 	
 	public static void count(HashMap<Integer, Person> h)
 	{
+		System.out.print("대기인원을 확인할 예약번호 입력 >> ");
+		int j = scn.nextInt();
 		
+		if(!h.containsKey(j))
+		{
+			System.out.println("예약번호 오류");
+			return;
+		}
+		int n = 1, count = 0;
+		while(n < i)
+		{
+			if(h.containsKey(n))
+			{
+				if(h.get(j).equals(h.get(n)))
+					++count;
+			}
+			++n;
+		}
+		System.out.println(count + "명의 인원이 대기중입니다.");
 	}
 	
 	public static void event(HashMap<Integer, Person> h)
@@ -106,6 +144,5 @@ public class M
 	public static void main(String[] args) 
 	{
 		GUI g = new GUI();
-	}
-	
+	}	
 }
