@@ -19,6 +19,11 @@ class Person
 	{
 		return ('\t' + age + '\t' + name + '\t' + atr);
 	}
+	
+	public String atr()
+	{
+		return atr;
+	}
 }
 
 
@@ -123,11 +128,11 @@ class Management
 			return;
 		}
 		int n = 1, count = 0;
-		while(n < i)
+		while(n < j)
 		{
 			if(h.containsKey(n))
 			{
-				if(h.get(j).equals(h.get(n)))
+				if(h.get(j).atr().equals(h.get(n).atr()))
 					++count;
 			}
 			++n;
