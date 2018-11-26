@@ -74,8 +74,10 @@ class GUI
 			while(n < Management.i)
 			{
 				if(h.containsKey(n))
-					System.out.println(n + h.get(n++).print());
+					System.out.println(n + h.get(n).print());
+				++n;
 			}
+			System.out.println();
 		}
 	}
 }
