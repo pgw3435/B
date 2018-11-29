@@ -27,7 +27,6 @@ class Person
 }
 
 
-
 class GUI
 {
 	static Scanner scn = new Scanner(System.in);
