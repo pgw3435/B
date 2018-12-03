@@ -16,6 +16,6 @@ public class random {
     }
     
     public static void main(String[] args) {        
-       random.ptn(20, 3);
+       random.ptn(100, 5);
     }
 }
