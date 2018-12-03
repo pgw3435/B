@@ -1,0 +1,21 @@
+package random2;
+import java.util.Date;
+import java.util.Random;
+
+public class Random3 {
+ public static void main(String[] args) {
+  int[] number = new int[5];
+  int index = 0;
+  Random rand = new Random(new Date().getTime());
+ 
+  loop:while(index!=5) {
+    int temp = rand.nextInt(100)+1;
+    for(int i=0;i<index;i++) {
+     if(number[i]==temp) continue loop;
+    }
+    number[index++] = temp;
+    if(index==5) System.out.println(" 보너스 : "+temp + "\n" + "축하합니다.~");
+    else System.out.print(temp+", ");
+  }
+ }
+}
