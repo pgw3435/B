@@ -1,3 +1,3 @@
 B조
 
-Amusement park
+Amusement park reservation management program
