@@ -1,0 +1,31 @@
+package random2;
+public class Lotto {
+
+ public static void main(String[] args) {
+  boolean flag = false;
+  int lotto[] = new int[6]; //번호가 저장될 배열
+  
+  for(int i=0; i<lotto.length; i++) {
+   lotto[i] = (int)(Math.random()*1000) % 45 + 1;
+   
+   if(i>0) {
+    for(int j=i-1; j>=0; j--) { 
+     if(lotto[j] == lotto[i]) {
+      flag = true;
+      break;
+     }
+    }
+   }
+   
+   if(flag == true) {
+    i--;
+    flag = false;
+    continue;
+   }
+  }
+  
+  for(int i=0; i<lotto.length; i++) {
+   System.out.println(lotto[i]);
+  }
+ }
+}
