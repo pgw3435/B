@@ -144,7 +144,21 @@ class Management
 	
 	public static void event(HashMap<Integer, Person> h)
 	{
+		if(i < 3)
+		{
+			System.out.println("추첨에 필요한 인원이 부족합니다.");
+			return;
+		}
 		
+		int n = (int)(Math.random()*1000) % (i - 1) + 1;
+		while(true)
+		{
+			if(!h.containsKey(n))
+				n = (int)(Math.random()*1000) % (i - 1) + 1;
+			else
+				break;
+		}
+		System.out.println("축하드립니다! " + n + "번째 고객님 당첨!");
 	}
 }
 
