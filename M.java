@@ -7,10 +7,10 @@ import java.util.*;
 
 class Person
 {
-	private int age;
-	private String name, atr;
+	//private int age;
+	private String age, name, atr;
 	
-	public Person(int a, String n, String at)
+	public Person(String a, String n, String at)
 	{
 		age = a;
 		name = n;
@@ -99,7 +99,7 @@ class Management
 	{
 		
 		System.out.println("나이 입력 >> ");		
-		int age = scn.nextInt();		
+		String age = scn.next();		
 		System.out.println("이름 입력 >> ");
 		String name = scn.next();
 		System.out.println("놀이기구 입력 >> ");
